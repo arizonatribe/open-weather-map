@@ -18,7 +18,7 @@ func (controller *WeatherController) GetCurrentWeatherByLocation(c *gin.Context)
 
 	coords, err := ParseCoordinates(q.Get("lat"), q.Get("lon"))
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"message": "Lat/lon value is invalid", "error": err})
+		c.String(http.StatusBadRequest, "Lat/lon value is invalid")
 		return
 	}
 
